@@ -1,8 +1,9 @@
+import { API_URL } from "../../settings.js"
+import { handleHttpErrors } from "../../utils.js"
+import { sanitizeStringWithTableRows } from "../../utils.js"
+const URL = API_URL + "/login"
 
-const URL = "https://spurven-backend.azurewebsites.net"
-
-
-function initLogin() {
+export function initLogin() {
   document.getElementById("login-button").onclick = login
 }
 
@@ -18,7 +19,7 @@ function login() {
     options.headers = { "Content-type": "application/json" }
     options.body = JSON.stringify(user)
  
-    fetch(URL + user.username + "/" + user.password, options)
+    fetch(URL + "/" + user.username + "/" + user.password, options)
         .then(r => {
             console.log("No Data returned from the server")
             alert("User was succesfully found (or not - we don't know")
