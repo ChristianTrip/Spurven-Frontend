@@ -1,49 +1,63 @@
 <div class="template">
-  <style>
-    .car-zero-margin {
-      margin: 0px;
-      ;
-    }
-  </style>
-
-  <div style="margin-left:10%;margin-right: 10%;">
-    <h1>Login</h1>
-    <div>
-      <div style="max-width:700px;">
-        <div class="row">
-          <div class="col-md-10">
-          <img class="img-fluid" style="width:100%" src="../../images/cars.PNG" alt="cars logo" class="carlogo">
-
-        </div>
-        <div class="row">
-          <div class="col-md-2">
-            <label for="username"><b>Username</b></label>
-          </div>
-          <div class="col-md-8">
-            <input type="text" placeholder="Enter Username" id="username" required>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-2">
-            <label for="password"><b>Password</b></label>
-          </div>
-          <div class="col-md-8">
-            <input type="password" placeholder="Enter Password" id="password" required>
-          </div>
-        </div>
-        <div class="row" style="margin-top:2em">
-          <div class="col-md-3 d-flex align-items-center">
-            <button style="width:100%" class="btn btn-dark car-zero-margin"  onClick="alert('Implement when you are ready for security')">Login</button>
-          </div>
-          <div class="col-md-4 d-flex align-items-center">
-            <span class="car-zero-margin">Not yet a member
-              &nbsp; <a href="/signup" data-navigo>Sign Up </a> </span>
-          </div>
-          <div class="col-md-3 d-flex align-items-center">
-            <button class="btn btn-link car-zero-margin"
-              onClick="alert('This is not, and will not be, implemented')">Forgot
-              password
+  <div class="modal" style="position: absolute; top:150px;" tabindex="-1" role="dialog" id="login-Modal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title-color" id="movie-title">Chosen show to edit</h5>
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
             </button>
+          </div>
+          <div class="modal-body">
+              <div class="row">
+                  <div class="col-md-10">
+                    <!-- <img class="img-fluid" style="width:100%" src="../../images/cars.PNG" alt="cars logo" class="carlogo"> -->
+                  </div>
+                  <div class="row">
+                    <div class="col-md-2">
+                      <label for="username"><b>Username</b></label>
+                    </div>
+                    <div class="col-md-8">
+                      <input
+                        type="text"
+                        placeholder="Enter Username"
+                        id="username"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-2">
+                      <label for="password"><b>Password</b></label>
+                    </div>
+                    <div class="col-md-8">
+                      <input
+                        type="password"
+                        placeholder="Enter Password"
+                        id="password"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="row" style="margin-top: 2em">
+                    <div class="col-md-3 d-flex align-items-center">
+                      <button
+                        type="submit"
+                        style="width: 100%"
+                        class="btn btn-dark car-zero-margin"
+                        id="login-button"
+                      >
+                        Login
+                      </button>
+                    </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="btn-edited-submit" data-bs-dismiss="modal">Edit
+              Show</button>
           </div>
         </div>
       </div>
+    </div>
+    </div>
+</div>
