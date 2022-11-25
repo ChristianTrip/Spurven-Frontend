@@ -15,6 +15,7 @@ window.location.href = "http://127.0.0.1:5501/index.html#/login";
 
 window.addEventListener("load", async () => {
   const templateLogin = await loadHtml("./pages/login/login.html");
+  const templateHome= await loadHtml("./pages/home/home.html");
 
   adjustForMissingHash();
 
@@ -31,11 +32,11 @@ window.addEventListener("load", async () => {
     })
     .on({
       //For very simple "templates", you can just insert your HTML directly like below
-      "/": () =>
-        (document.getElementById("content").innerHTML = `
-  
-     `),
-      "/login": (match) => {
+      "/": () => {
+        renderTemplate(templateHome, "content");
+      
+      },
+      "/login": () => {
         renderTemplate(templateLogin, "content");
         initLogin();
       },

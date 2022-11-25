@@ -3,6 +3,8 @@ import { handleHttpErrors } from "../../utils.js"
 import { sanitizeStringWithTableRows } from "../../utils.js"
 const URL = API_URL + "/login"
 
+
+
 export function initLogin() {
   document.getElementById("login-button").onclick = login
 }
@@ -26,3 +28,4 @@ function login() {
         })
 
 }
+
