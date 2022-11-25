@@ -5,3 +5,17 @@
     background-repeat: no-repeat, no-repeat;
     background-position: left top, right top;
   }
+
+  #navbar-bs-spurven{
+    font-size: x-large;
+    padding-left: 25px;
+  }
+
+  #navbarDropdown{
+    padding-left: 30px;
+  }
+
+  #kontakt{
+    padding-left: 30px;
+    padding-right: 80px;
+  }
