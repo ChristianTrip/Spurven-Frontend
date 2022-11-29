@@ -16,6 +16,7 @@ window.location.href = "http://127.0.0.1:5501/index.html#/login";
 window.addEventListener("load", async () => {
   const templateLogin = await loadHtml("./pages/login/login.html");
   const templateHome= await loadHtml("./pages/home/home.html");
+  const templateContact= await loadHtml("./pages/contact/contact.html");
 
   adjustForMissingHash();
 
@@ -39,6 +40,9 @@ window.addEventListener("load", async () => {
       "/login": () => {
         renderTemplate(templateLogin, "content");
         initLogin();
+      },
+      "/contact": () => {
+        renderTemplate(templateContact, "content");
       },
     })
     .notFound(() => {
