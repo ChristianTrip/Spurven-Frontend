@@ -1,6 +1,7 @@
 .home-picture-left{
     background-image: url('./spurven-boating-left.png'), url('./spurven-boating-right.png');
     height: 700px;
+
     background-size: 50% 100%;
     background-repeat: no-repeat, no-repeat;
     background-position: left top, right top;
