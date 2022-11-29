@@ -17,52 +17,57 @@
 
 <body style="font-family: sans-serif">
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="font-size:larger">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="font-size:larger">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#" style="color:lightcoral">Spurven</a>
+      <a class="navbar-brand" id="navbar-bs-spurven" href="#" style="color:rgb(253, 252, 252)">Spurven</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul id="menu" class="navbar-nav">
+        <ul id="menu" class="navbar-nav ms-auto">
           <li class="nav-item active">
             <a class="nav-link" href="/" data-navigo>Home</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
               aria-expanded="false">
-              Cars (A)
+              Budget
             </a>
-            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="/find-edit-car" data-navigo>Find/Edit Car</a></li>
-              <li><a class="dropdown-item" href="/add-car" data-navigo>Add Car</a></li>
+            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="/find-edit-car" data-navigo>List item 1</a></li>
+              <li><a class="dropdown-item" href="/add-car" data-navigo>List item 2</a></li>
+              <li><a class="dropdown-item" href="/add-car" data-navigo>List item 3</a></li>
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item" href="/cars" data-navigo>All Cars</a></li>
+              <li><a class="dropdown-item" href="/cars" data-navigo>List item 4</a></li>
+              <li><a class="dropdown-item" href="/add-car" data-navigo>List item 5</a></li>
+              <li><a class="dropdown-item" href="/add-car" data-navigo>List item 6</a></li>
             </ul>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/members" data-navigo>Members(A)</a>
-          </li>
 
-          <li class="nav-item">
-            <a class="nav-link" href="/signup" data-navigo>Sign up</a>
-          </li>
+          
 
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
               aria-expanded="false">
-              Reservation (M)
+              Calendar
             </a>
-            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="/reserve-car" data-navigo>Reserve Cars</a></li>
-              <li><a class="dropdown-item" href="/reservations" data-navigo>See your reservations</a></li>
+            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="/find-edit-car" data-navigo>List item 1</a></li>
+              <li><a class="dropdown-item" href="/add-car" data-navigo>List item 2</a></li>
+              <li><a class="dropdown-item" href="/add-car" data-navigo>List item 3</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="/cars" data-navigo>List item 4</a></li>
+              <li><a class="dropdown-item" href="/add-car" data-navigo>List item 5</a></li>
+              <li><a class="dropdown-item" href="/add-car" data-navigo>List item 6</a></li>
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/login" data-navigo>Login</a>
+            <a class="nav-link" id="kontakt" href="/signup" data-navigo>Kontakt</a>
           </li>
         </ul>
       </div>
