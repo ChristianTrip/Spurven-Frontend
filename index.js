@@ -10,8 +10,9 @@ import {
 } from "./utils.js";
 
 import { initLogin } from "./pages/login/login.js";
+import {initHome} from "./pages/home/home.js";
 
-window.location.href = "http://127.0.0.1:5501/index.html#/login";
+window.location.href = "spurven-boating.dk/index.html#/login";
 
 window.addEventListener("load", async () => {
   const templateLogin = await loadHtml("./pages/login/login.html");
@@ -34,6 +35,7 @@ window.addEventListener("load", async () => {
       //For very simple "templates", you can just insert your HTML directly like below
       "/": () => {
         renderTemplate(templateHome, "content");
+        initHome();
       
       },
       "/login": () => {
