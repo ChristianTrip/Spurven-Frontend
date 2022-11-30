@@ -1,7 +1,7 @@
 import { API_URL } from "../../settings.js"
 import { handleHttpErrors } from "../../utils.js"
 import { sanitizeStringWithTableRows } from "../../utils.js"
-const URL = API_URL + "/login"
+const URL = API_URL + "auth/login"
 
 
 
@@ -10,22 +10,20 @@ export function initLogin() {
 }
 
 function login() {
-  console.log("Inden login")  
-  const user = {}
+    const user = {}
+    user.username = document.getElementById("username").value
     user.password = document.getElementById("password").value
-    user.password = document.getElementById("password").value
-
 
     const options = {}
-    options.method = "GET"
+    options.method = "POST"
     options.headers = { "Content-type": "application/json" }
     options.body = JSON.stringify(user)
  
-    fetch(URL + "/" + user.username + "/" + user.password, options)
+    fetch(URL, options)
         .then(r => {
             console.log("No Data returned from the server")
             alert("User was succesfully found (or not - we don't know")
         })
-
 }
 
+ 
