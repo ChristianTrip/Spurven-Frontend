@@ -13,7 +13,9 @@ import { initLogin } from "./pages/login/login.js";
 import { initHome } from "./pages/home/home.js";
 import { initContacts } from "./pages/contact/contact.js";
 
+
 window.location.href = "/index.html#/login";
+
 
 window.addEventListener("load", async () => {
   const templateLogin = await loadHtml("./pages/login/login.html");
