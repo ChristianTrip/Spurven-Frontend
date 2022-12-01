@@ -10,17 +10,19 @@ import {
 } from "./utils.js";
 
 import { initLogin } from "./pages/login/login.js";
-import { initHome } from "./pages/home/home.js";
-import { initContacts } from "./pages/contact/contact.js";
+import {initHome} from "./pages/home/home.js";
+import {initContacts} from "./pages/contact/contact.js";
+import { initCalendar } from "./pages/calendar/calendar.js";
 
-
-window.location.href = "/index.html#/login";
-
+//window.location.href = "spurven-boating.dk/index.html#/login";
+//window.location.href = "http://127.0.0.1:5501/index.html#/login";
 
 window.addEventListener("load", async () => {
   const templateLogin = await loadHtml("./pages/login/login.html");
-  const templateHome = await loadHtml("./pages/home/home.html");
-  const templateContact = await loadHtml("./pages/contact/contact.html");
+  const templateHome= await loadHtml("./pages/home/home.html");
+  const templateContact= await loadHtml("./pages/contact/contact.html");
+  const templateCalendar = await loadHtml("./pages/calendar/calendar.html")
+
 
   adjustForMissingHash();
 
@@ -49,6 +51,10 @@ window.addEventListener("load", async () => {
         renderTemplate(templateContact, "content");
         initContacts();
       },
+      "/calendar": () => {
+        renderTemplate(templateCalendar, "content");
+        initCalendar();
+      }
     })
     .notFound(() => {
       renderTemplate(templateNotFound, "content");
