@@ -10,15 +10,17 @@ import {
 } from "./utils.js";
 
 import { initLogin } from "./pages/login/login.js";
-import {initHome} from "./pages/home/home.js";
+import { initHome } from "./pages/home/home.js";
+import { initContacts } from "./pages/contact/contact.js";
 
-window.location.href = "spurven-boating.dk/index.html#/login";
-//window.location.href = "http://127.0.0.1:5501/index.html#/login";
+
+window.location.href = "/index.html#/login";
+
 
 window.addEventListener("load", async () => {
   const templateLogin = await loadHtml("./pages/login/login.html");
-  const templateHome= await loadHtml("./pages/home/home.html");
-  const templateContact= await loadHtml("./pages/contact/contact.html");
+  const templateHome = await loadHtml("./pages/home/home.html");
+  const templateContact = await loadHtml("./pages/contact/contact.html");
 
   adjustForMissingHash();
 
@@ -38,7 +40,6 @@ window.addEventListener("load", async () => {
       "/": () => {
         renderTemplate(templateHome, "content");
         initHome();
-      
       },
       "/login": () => {
         renderTemplate(templateLogin, "content");
@@ -46,6 +47,7 @@ window.addEventListener("load", async () => {
       },
       "/contact": () => {
         renderTemplate(templateContact, "content");
+        initContacts();
       },
     })
     .notFound(() => {
