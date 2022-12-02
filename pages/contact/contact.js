@@ -9,13 +9,22 @@ export function initContacts() {
 
 export async function fetchAllContacts() {
   const contactsFromServer = await fetch(URL).then((res) => res.json());
-  showAllContacts(contactsFromServer);
+  //currently the best solution is to hardcode the ids of the contactTypes
+  const arrayOfIds = [1,2,3,4,5,6];
+  for (let i = 0; i < arrayOfIds.length; i++) {
+    let currentId = arrayOfIds[i];
+    var contactsCategorized = showAllContacts(contactsFromServer, currentId);
+    document.getElementById("tbl-body-" + currentId).innerHTML =
+    sanitizeStringWithTableRows(contactsCategorized);
+  }
 }
 
-//<td>${contact.contactType.id}</td> <--Good to have x)
-function showAllContacts(data) {
+function showAllContacts(data, id) {
   console.log(data);
-  const tableRows = data.map(
+  var newArray = data.filter(function (contact) {
+  return contact.contactType.id == id
+});
+  const tableRows = newArray.map(
     (contact) =>
       `
     <tr>
@@ -31,13 +40,5 @@ function showAllContacts(data) {
 
   const tableRowStrings = tableRows.join("\n");
 
-  let contactType = [];
-  data.forEach((contact) => (contactType += contact.contactType.id));
-
-  for (let i = 0; i < contactType.length; i++) {
-    document.getElementById("tbl-body-" + contactType[i]).innerHTML =
-      sanitizeStringWithTableRows(tableRowStrings);
-  }
+  return tableRowStrings;
 }
-
-function filterData() {}
