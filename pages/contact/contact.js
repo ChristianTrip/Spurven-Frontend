@@ -12,7 +12,9 @@ export async function fetchAllContacts() {
   showAllContacts(contactsFromServer);
 }
 
+//<td>${contact.contactType.id}</td> <--Good to have x)
 function showAllContacts(data) {
+  console.log(data);
   const tableRows = data.map(
     (contact) =>
       `
@@ -26,7 +28,16 @@ function showAllContacts(data) {
     </tr>
     `
   );
+
   const tableRowStrings = tableRows.join("\n");
-  document.getElementById("tbl-body").innerHTML =
-    sanitizeStringWithTableRows(tableRowStrings);
+
+  let contactType = [];
+  data.forEach((contact) => (contactType += contact.contactType.id));
+
+  for (let i = 0; i < contactType.length; i++) {
+    document.getElementById("tbl-body-" + contactType[i]).innerHTML =
+      sanitizeStringWithTableRows(tableRowStrings);
+  }
 }
+
+function filterData() {}
