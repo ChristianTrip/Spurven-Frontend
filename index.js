@@ -13,8 +13,8 @@ import { initLogin } from "./pages/login/login.js";
 import { initHome } from "./pages/home/home.js";
 import { initContacts } from "./pages/contact/contact.js";
 
-//index.html#/login
-window.location.href = "index.html#/login/";
+
+window.location.href = "/index.html#/login";
 
 
 window.addEventListener("load", async () => {
