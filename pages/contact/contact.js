@@ -10,20 +10,19 @@ export function initContacts() {
 export async function fetchAllContacts() {
   const contactsFromServer = await fetch(URL).then((res) => res.json());
   //currently the best solution is to hardcode the ids of the contactTypes
-  const arrayOfIds = [1,2,3,4,5,6];
+  const arrayOfIds = [1, 2, 3, 4, 5, 6];
   for (let i = 0; i < arrayOfIds.length; i++) {
     let currentId = arrayOfIds[i];
     var contactsCategorized = showAllContacts(contactsFromServer, currentId);
     document.getElementById("tbl-body-" + currentId).innerHTML =
-    sanitizeStringWithTableRows(contactsCategorized);
+      sanitizeStringWithTableRows(contactsCategorized);
   }
 }
 
 function showAllContacts(data, id) {
-  console.log(data);
   var newArray = data.filter(function (contact) {
-  return contact.contactType.id == id
-});
+    return contact.contactType.id == id;
+  });
   const tableRows = newArray.map(
     (contact) =>
       `
