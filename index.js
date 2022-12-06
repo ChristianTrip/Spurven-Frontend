@@ -22,6 +22,7 @@ window.addEventListener("load", async () => {
   const templateHome= await loadHtml("./pages/home/home.html");
   const templateContact= await loadHtml("./pages/contact/contact.html");
   const templateCalendar= await loadHtml("./pages/calendar/calendar.html");
+  const templateExpense= await loadHtml("./pages/expense/expense.html");
 
   adjustForMissingHash();
 
@@ -54,6 +55,10 @@ window.addEventListener("load", async () => {
       "/calendar": () => {
         renderTemplate(templateCalendar, "content")
         initCalendar();
+      },
+      "/expense": () => {
+        renderTemplate(templateExpense, "expense")
+        initExpense();
       }
     })
     .notFound(() => {
