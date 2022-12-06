@@ -1,58 +1,21 @@
 <div class="template">
-  <div style="margin-left:10%;margin-right: 10%;">
 
-    <h1>Login</h1>
-    <div>
-      <div style="max-width:700px;">
-        <div class="row">
-          <div class="col-md-10">
-          <!-- <img class="img-fluid" style="width:100%" src="../../images/cars.PNG" alt="cars logo" class="carlogo"> -->
-        </div>
-        <div class="row">
-          <div class="col-md-2">
-            <label for="username"><b>Username</b></label>
-          </div>
-          <div class="col-md-8">
-            <input type="text" placeholder="Enter Username" id="username" required>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-2">
-            <label for="password"><b>Password</b></label>
-            <!-- <img class="img-fluid" style="width:100%" src="../../images/cars.PNG" alt="cars logo" class="carlogo"> -->
-          </div>
-          <div class="col-md-8">
-            <input type="password" placeholder="Enter Password" id="password" required>
-        </div>
-        <div class="row" style="margin-top:2em">
-          <div class="col-md-3 d-flex align-items-center">
-            <button type="submit" style="width:100%" class="btn btn-dark car-zero-margin" id="login-button">Login</button>
-          </div>
-          <!-- <div class="col-md-4 d-flex align-items-center">
-          <div class="row" style="margin-top: 2em">
-            <div class="col-md-3 d-flex align-items-center">
-              <button
-                type="submit"
-                style="width: 100%"
-                class="btn btn-dark car-zero-margin"
-                id="login-button"
-              >
-                Login
-              </button>
-            </div>
-            <-- <div class="col-md-4 d-flex align-items-center">
-            <span class="car-zero-margin">Not yet a member
-              &nbsp; <a href="/signup" data-navigo>Sign Up </a> </span>
-          </div>
-@@ -45,5 +60,9 @@ <h1>Login</h1>
-              password
-            </button>
-          </div> -->
-          </div>
-        </div>
-      </div>
-      </div>
+  <div class="login-card">
+    <div id="login-text">
+      <h1>Velkommen til Bådfælleskabet Spurven</h1>
     </div>
+    <hr>
+      <h2>Login</h2>
+    <div id="login-form">
+      <label for="username"><b>Username</b></label>
+      <input id="username" type="text" placeholder="Enter Username" required>
+
+      <label for="password"><b>Password</b></label>
+      <input id="password" type="password" placeholder="Enter Password" required>
+
+      <button id="login-button" type="submit">Login</button>
+    </div>
+    <p style="margin:1em;font-size:x-large" id="response"></p>
   </div>
-      
+
 </div>

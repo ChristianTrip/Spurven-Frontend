@@ -1,0 +1,59 @@
+*{
+    font-family: "Space Mono", serif;
+}
+
+.login-card{
+    border-radius: 10px;
+    margin: auto;
+    padding-top: 10px;
+    width: 600px;
+    height: 600px;
+    display: block;
+
+}
+#login-text{
+    text-align: center;
+    padding: 20px 0;
+    text-transform: uppercase;
+}
+
+h2{
+    padding-top: 20px;
+    text-align: center;
+}
+
+#login-form{
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+}
+label{
+    font-size: 15px;
+    font-family: "Roboto Mono", serif;
+}
+
+input{
+    font-size: 15px;
+    width: 100%;
+    padding: 10px 20px;
+    margin: 8px 0;
+    display: block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button {
+    font-size: 15px;
+    background-color: royalblue;
+    color: white;
+    padding: 14px 20px;
+    margin: 15px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+
+button:hover {
+    opacity: 0.8;
+}
