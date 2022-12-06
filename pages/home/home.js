@@ -9,11 +9,11 @@ export function initHome(){
 
 export async function fetchALl (){
     const userFromServer = await fetch(URL).then(res => res.json())
-    showAllMovies(userFromServer)
+    showAllUsers(userFromServer)
 
 }
 
-function showAllMovies(data) {
+function showAllUsers(data) {
     const tableRows = data.map(users => `
           <tr>
           <td>${users.firstName}</td>

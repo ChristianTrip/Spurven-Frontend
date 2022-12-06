@@ -1,7 +1,6 @@
 .home-picture-left{
     background-image: url('../images/boat-image-1.png'), url('../images/boat-image-2.png');
     height: 700px;
-
     background-size: 50% 100%;
     background-repeat: no-repeat, no-repeat;
     background-position: left top, right top;

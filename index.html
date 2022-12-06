@@ -11,16 +11,38 @@
   <link rel="stylesheet" href="styles/style.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.4.0/purify.min.js"></script>
   <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css' rel='stylesheet' />
-<script src="index.js" type="module"></script>
+  <link rel="stylesheet" href="styles/login.css">
+  <script src="index.js" type="module"></script>
 </head>
 
 <body style="font-family: sans-serif">
 
+<div id="login-card">
+  <div id="login-text">
+    <h1>Velkommen til Bådfælleskabet Spurven</h1>
+  </div>
+  <hr>
+  <h2>Login</h2>
+  <div id="login-form">
+    <label for="username"><b>Username</b></label>
+    <input id="username" type="text" placeholder="Enter Username" required>
+
+    <label for="password"><b>Password</b></label>
+    <input id="password" type="password" placeholder="Enter Password" required>
+
+    <button id="login-button" type="submit">Login</button>
+  </div>
+  <p style="margin:1em;font-size:x-large" id="response"></p>
+</div>
+
+
+<div id="logged-in" style="display: none; overflow: hidden">
+
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="font-size:larger">
     <div class="container-fluid">
-      <a class="navbar-brand" id="navbar-bs-spurven" href="/" style="color:rgb(253, 252, 252)">Spurven</a>
+      <a class="navbar-brand" id="navbar-bs-spurven" style="color:rgb(253, 252, 252)">Spurven</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
@@ -30,7 +52,7 @@
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
+               aria-expanded="false">
               Budget
             </a>
             <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarDropdown">
@@ -54,19 +76,24 @@
           <li class="nav-item">
             <a class="nav-link" id="contact" href="/contact" data-navigo>Contact</a>
           </li>
+          <li >
+            <button id="logout-button">Logout</button>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
 
-
   <div id="content">
   </div>
+
+</div>
+
 
   
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js'></script>
-  
+  <script src="pages/login/login.js" type="module"></script>
 </body>
 
 

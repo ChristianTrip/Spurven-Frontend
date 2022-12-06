@@ -45,8 +45,7 @@ window.addEventListener("load", async () => {
       
       },
       "/login": () => {
-        renderTemplate(templateLogin, "content");
-        initLogin();
+
       },
       "/contact": () => {
         renderTemplate(templateContact, "content");
