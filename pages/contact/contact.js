@@ -9,6 +9,21 @@ export function initContacts() {
   // document.getElementById("tbl-body").onclick = editTarget
 }
 
+function closeModal() {
+  console.log("made it here")
+  /* document.getElementById("modal-add-contact").style.display = "none". */
+  
+  /* currentModal.classList.add("hidden"); */
+
+
+
+    /* currentModal.style.display = "none";
+    currentModal.className="modal fade"; */
+  
+}
+
+
+
 export async function fetchAllContacts() {
   const contactsFromServer = await fetch(URL).then((res) => res.json());
   //currently the best solution is to hardcode the ids of the contactTypes
@@ -32,7 +47,7 @@ function showAllContacts(data, id) {
         <td>${contact.name}</td>
         <td>${contact.phone}</td>
         <td>${contact.email}</td>
-        <td>
+        <td class="text-center">
         <button id="${contact.id}-column-id-edit" type="button"  class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>  
         </td>
     </tr>
@@ -47,7 +62,19 @@ function showAllContacts(data, id) {
 function addContact() {
     // const htmlId = "-add"
     // optionsForDropdown(htmlId)
+    fetchAllContacts();
+
     document.getElementById("bnt-submit-contact").onclick = makeNewContact
+
+
+    /* document.querySelector('button#bnt-hide-contact-modal').addEventListener('click', e => {
+      document.body.classList.remove('.modal')
+    }) */
+    /* document.getElementById("bnt-hide-contact-modal").onclick = closeModal */
+    /* document.getElementById("bnt-hide-contact-modal").addEventListener("click", function (e) {
+      closeModal.classList.add("hidden");
+    }); */
+   
 }
 
 async function optionsForDropdown(htmlId) {
@@ -64,7 +91,6 @@ function selectTypeOptions(data, htmlId) {
     <option value="${contact.contactType}">${contact.contactType}</option>
 `)
     document.getElementById("select-date" + htmlId).innerHTML = optionsRows
-
 }
 
 
@@ -73,7 +99,7 @@ function makeNewContact() {
     newContact.name = document.getElementById("modal-input-contact-name").value
     newContact.phone = document.getElementById("modal-input-contact-phone").value
     newContact.email = document.getElementById("modal-input-contact-email").value
-    newContact.contactType = document.getElementById("modal-select-contact-type").value
+    newContact.contactTypeId = document.getElementById("modal-select-contact-type").value
     console.log(document.getElementById("modal-select-contact-type").value)
 
     const options = {}
@@ -84,5 +110,7 @@ function makeNewContact() {
     fetch(URL, options)
         .then(r => r.json())
         /* .then(addedshow => document.getElementById("returned-new-show").innerText = JSON.stringify(addedshow, null, 2) */
-}
 
+        addContact()
+        
+}

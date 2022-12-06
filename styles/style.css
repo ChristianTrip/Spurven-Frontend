@@ -162,3 +162,9 @@
       font-size: 150%;
       width: 150%;
     }
+
+
+.table tbody tr td:last-child button, .modal-footer button { 
+  margin: auto;
+  width: 50% !important;
+}
