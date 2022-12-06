@@ -5,6 +5,8 @@ const URL = API_URL + "contacts/";
 
 export function initContacts() {
   fetchAllContacts();
+  document.getElementById("add-button").onclick = addContact
+  // document.getElementById("tbl-body").onclick = editTarget
 }
 
 export async function fetchAllContacts() {
@@ -40,4 +42,46 @@ function showAllContacts(data, id) {
   const tableRowStrings = tableRows.join("\n");
 
   return tableRowStrings;
+}
+
+function addContact() {
+    // const htmlId = "-add"
+    // optionsForDropdown(htmlId)
+    document.getElementById("bnt-submit-contact").onclick = makeNewContact
+}
+
+async function optionsForDropdown(htmlId) {
+    const showsValuesForDropdown = await fetch(URL).then(res => res.json())
+    selectTypeOptions(showsValuesForDropdown, htmlId)
+    // selectTimeOptions(showsValuesForDropdown, htmlId)
+    
+    // we'll wait with this one
+    // fetchMovieToEdit(htmlId)
+}
+
+function selectTypeOptions(data, htmlId) {
+    const optionsRows = data.map(contact => `
+    <option value="${contact.contactType}">${contact.contactType}</option>
+`)
+    document.getElementById("select-date" + htmlId).innerHTML = optionsRows
+
+}
+
+
+function makeNewContact() {
+    const newContact = {}
+    newContact.name = document.getElementById("modal-input-contact-name").value
+    newContact.phone = document.getElementById("modal-input-contact-phone").value
+    newContact.email = document.getElementById("modal-input-contact-email").value
+    newContact.contactType.id = document.getElementById("modal-select-contact-type").value
+
+    const options = {}
+    options.method = "POST"
+    options.headers = { "Content-type": "application/json" }
+    options.body = JSON.stringify(newShow)
+
+    fetch(URL, options)
+        .then(r => r.json())
+        .then(addedshow => document.getElementById("returned-new-show").innerText = JSON.stringify(addedshow, null, 2)
+        )
 }
