@@ -73,15 +73,16 @@ function makeNewContact() {
     newContact.name = document.getElementById("modal-input-contact-name").value
     newContact.phone = document.getElementById("modal-input-contact-phone").value
     newContact.email = document.getElementById("modal-input-contact-email").value
-    newContact.contactType.id = document.getElementById("modal-select-contact-type").value
+    newContact.contactType = document.getElementById("modal-select-contact-type").value
+    console.log(document.getElementById("modal-select-contact-type").value)
 
     const options = {}
     options.method = "POST"
     options.headers = { "Content-type": "application/json" }
-    options.body = JSON.stringify(newShow)
+    options.body = JSON.stringify(newContact)
 
     fetch(URL, options)
         .then(r => r.json())
-        .then(addedshow => document.getElementById("returned-new-show").innerText = JSON.stringify(addedshow, null, 2)
-        )
+        /* .then(addedshow => document.getElementById("returned-new-show").innerText = JSON.stringify(addedshow, null, 2) */
 }
+
