@@ -3,11 +3,49 @@ import { handleHttpErrors } from "../../utils.js";
 import { sanitizeStringWithTableRows } from "../../utils.js";
 const URL = API_URL + "contacts/";
 
+
+
 export function initContacts() {
   fetchAllContacts();
   document.getElementById("add-button").onclick = addContact
+
+  // const arrayOfIds = [1, 2, 3, 4, 5, 6];
+  // for (let i = 0; i < arrayOfIds.length; i++) {
+  //   document.getElementById("tbl-body"+arrayOfIds[i]).onclick = editTarget
+  // }
   // document.getElementById("tbl-body").onclick = editTarget
 }
+
+function closeModal() {
+  console.log("made it here")
+
+
+  document.addEventListener('submit', function (event) {
+
+      event.preventDefault();
+      event.target.reset();
+
+});
+
+	// evt.preventDefault();
+
+	// evt.target.reset();
+
+
+
+
+  /* document.getElementById("modal-add-contact").style.display = "none". */
+  
+  /* currentModal.classList.add("hidden"); */
+
+
+
+    /* currentModal.style.display = "none";
+    currentModal.className="modal fade"; */
+  
+}
+
+
 
 export async function fetchAllContacts() {
   const contactsFromServer = await fetch(URL).then((res) => res.json());
@@ -32,8 +70,8 @@ function showAllContacts(data, id) {
         <td>${contact.name}</td>
         <td>${contact.phone}</td>
         <td>${contact.email}</td>
-        <td>
-        <button id="${contact.id}-column-id-edit" type="button"  class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>  
+        <td class="text-center">
+        <button id="${contact.id}-column-id-edit" type="button"  class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#modal-edit-contact">Edit</button>  
         </td>
     </tr>
     `
@@ -45,9 +83,12 @@ function showAllContacts(data, id) {
 }
 
 function addContact() {
-    // const htmlId = "-add"
-    // optionsForDropdown(htmlId)
+
+    // Add contact
     document.getElementById("bnt-submit-contact").onclick = makeNewContact
+    
+    // Refresh page
+    fetchAllContacts();
 }
 
 async function optionsForDropdown(htmlId) {
@@ -64,7 +105,6 @@ function selectTypeOptions(data, htmlId) {
     <option value="${contact.contactType}">${contact.contactType}</option>
 `)
     document.getElementById("select-date" + htmlId).innerHTML = optionsRows
-
 }
 
 
@@ -73,15 +113,18 @@ function makeNewContact() {
     newContact.name = document.getElementById("modal-input-contact-name").value
     newContact.phone = document.getElementById("modal-input-contact-phone").value
     newContact.email = document.getElementById("modal-input-contact-email").value
-    newContact.contactType.id = document.getElementById("modal-select-contact-type").value
+    newContact.contactTypeId = document.getElementById("modal-select-contact-type").value
+    console.log(document.getElementById("modal-select-contact-type").value)
 
     const options = {}
     options.method = "POST"
     options.headers = { "Content-type": "application/json" }
-    options.body = JSON.stringify(newShow)
+    options.body = JSON.stringify(newContact)
 
     fetch(URL, options)
         .then(r => r.json())
-        .then(addedshow => document.getElementById("returned-new-show").innerText = JSON.stringify(addedshow, null, 2)
-        )
+        /* .then(addedshow => document.getElementById("returned-new-show").innerText = JSON.stringify(addedshow, null, 2) */
+
+        addContact();
+        
 }
