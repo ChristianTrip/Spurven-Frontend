@@ -1,8 +1,6 @@
-*{
-    font-family: "Space Mono", serif;
-}
 
-.login-card{
+#login-card{
+    font-family: "Space Mono", serif;
     border-radius: 10px;
     margin: auto;
     padding-top: 10px;
@@ -42,7 +40,7 @@ input{
     box-sizing: border-box;
 }
 
-button {
+#login-button {
     font-size: 15px;
     background-color: royalblue;
     color: white;
@@ -54,6 +52,26 @@ button {
 }
 
 
-button:hover {
+#login-button:hover {
     opacity: 0.8;
+}
+
+#logout-button{
+    font-family: sans-serif;
+    margin: 0;
+    font-size: 19px;
+
+    background-color: #0d6dfd;
+    color: white;
+    border: 3px solid white;
+    border-radius: 10px;
+    padding: 5px 20px;
+    cursor: pointer;
+    width: 100%;
+}
+
+#logout-button:hover {
+    background-color: white;
+    color: #0d6dfd;
+
 }
