@@ -1,6 +1,6 @@
+let SERVER_URL = "https://spurven-backend.azurewebsites.net/"
+//let SERVER_URL = "http://localhost:8080/"
 
-
-let SERVER_URL = "http://localhost:8080/"
 
 
 document.getElementById("login-button").onclick = loginLogoutClick
