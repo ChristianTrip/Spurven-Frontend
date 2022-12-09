@@ -114,3 +114,12 @@ export function getAuthenticatorForEdit(methodType, body){
 
   return options;
 }
+
+export function getAuthenticatorForDelete(){
+  const token = localStorage.getItem('token');
+  const options = {}
+  options.method = "DELETE"
+  options.headers = { "Content-type": "application/json", "Authorization" : "Bearer " + token}
+
+  return options;
+}
