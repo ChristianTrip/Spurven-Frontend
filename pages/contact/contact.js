@@ -117,19 +117,15 @@ function selectTypeOptions(data, htmlId) {
 
 
 function makeNewContact() {
-    const newContact = {
-      "name": 'some',
-      "phone": '1234',
-      "email": 'some@ad',
-      "contactTypeId": 4
-    }
-    /* newContact.name = document.getElementById("modal-input-contact-name").value
+    const newContact = {}
+    
+    newContact.name = document.getElementById("modal-input-contact-name").value
     newContact.phone = document.getElementById("modal-input-contact-phone").value
     newContact.email = document.getElementById("modal-input-contact-email").value
-    newContact.contactTypeId = document.getElementById("modal-select-contact-type").value */
-    /* console.log(document.getElementById("modal-select-contact-type").value) */
+    newContact.contactTypeId = document.getElementById("modal-select-contact-type").value
+    console.log(document.getElementById("modal-select-contact-type").value)
 
-console.log(newContact)
+    console.log(newContact)
 
 
     const options = {}
