@@ -5,6 +5,11 @@ import { getAuthenticatorForGet} from "../../utils.js";
 import { getAuthenticatorForEdit} from "../../utils.js";
 
 const URL = API_URL + "contacts";
+const methodPost = "POST";
+const methodPut = "PUT";
+const methodDelete = "DELETE";
+const generalOptions = getAuthenticatorForGet();
+
 
 export function initContacts() {
   fetchAllContacts();
@@ -124,6 +129,8 @@ function selectTypeOptions(data, htmlId) {
 
 
 function makeNewContact() {
+    
+
     const newContact = {}
     
     newContact.name = document.getElementById("modal-input-contact-name").value
@@ -134,13 +141,12 @@ function makeNewContact() {
 
     console.log(newContact)
 
+    let contactToJson = JSON.stringify(newContact)
+    
+    let options = getAuthenticatorForEdit(methodPost, contactToJson);
 
-    const options = {}
-    options.method = "POST"
-    options.headers = { "Content-type": "application/json" }
-    options.body = JSON.stringify(newContact)
-
-    console.log(JSON.stringify(newContact))
+    console.log(contactToJson)
+    console.log(options)
 
     fetch(URL + "/", options)
         .then(r => r.json())
@@ -176,7 +182,7 @@ function editTarget(evt) {
 
 async function renderContacts(id) {
   try {
-      const contact = await fetch(URL + '/' + id).then(res => res.json())
+      const contact = await fetch(URL + '/' + id, generalOptions).then(res => res.json())
       
       contact.contactType.id
 
@@ -202,32 +208,20 @@ async function renderContacts(id) {
 
 async function submitEditedContact(evt) {
   evt.preventDefault
-  let a = 1
   try {
   const editedContact = {}
-
-  editedContact.id = document.getElementById("id-edit-contact").value
-  a = editedContact.id
-  console.log(editedContact.id)
+  
   editedContact.name = document.getElementById("modal-input-contact-name-edit").value
-  console.log(editedContact.name)
   editedContact.phone = document.getElementById("modal-input-contact-phone-edit").value
-  console.log(editedContact.phone)
   editedContact.email = document.getElementById("modal-input-contact-email-edit").value
-  console.log(editedContact.email)
   editedContact.contactType = document.getElementById("modal-select-contact-type-edit").value
-  console.log(editedContact.contactType)
 
-  console.log(editedContact.id + "-1")
 
-  const options = {}
-  options.method = "PUT"
-  options.headers = { "Content-type" : "application/json" }
-  options.body = JSON.stringify(editedContact)
+  let idToEdit = document.getElementById("id-edit-contact").value
+  let editContactToJson = JSON.stringify(editedContact)
+  let options = getAuthenticatorForEdit(methodPut, editContactToJson);
 
-  await fetch(URL + '/' + 
-  a, 
-  options)
+  await fetch(URL + '/' + idToEdit, options)
   .then(handleHttpErrors)
 } catch (err) {
   console.log(err.message + " (Is the API online?)")
