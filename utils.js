@@ -92,3 +92,25 @@ export function encode(str) {
   str = str.replace(/'/g, "&#039;");
   return str;
 }
+
+
+
+
+export function getAuthenticatorForGet(){
+  const token = localStorage.getItem('token');
+  const options = {}
+  options.method = "GET"
+  options.headers = { "Content-type": "application/json", "Authorization" : "Bearer " + token}
+
+  return options;
+}
+
+export function getAuthenticatorForEdit(methodType, body){
+  const token = localStorage.getItem('token');
+  const options = {}
+  options.method = methodType
+  options.headers = { "Content-type": "application/json", "Authorization" : "Bearer " + token}
+  options.body = body;
+
+  return options;
+}

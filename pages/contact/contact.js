@@ -1,9 +1,10 @@
 import { API_URL } from "../../settings.js";
 import { handleHttpErrors } from "../../utils.js";
 import { sanitizeStringWithTableRows } from "../../utils.js";
+import { getAuthenticatorForGet} from "../../utils.js";
+import { getAuthenticatorForEdit} from "../../utils.js";
+
 const URL = API_URL + "contacts";
-
-
 
 export function initContacts() {
   fetchAllContacts();
@@ -55,21 +56,27 @@ function closeModal() {
 
 
 
+
+
 export async function fetchAllContacts() {
-  const contactsFromServer = await fetch(URL).then((res) => res.json());
-  //currently the best solution is to hardcode the ids of the contactTypes
-  const arrayOfIds = [1, 2, 3, 4, 5, 6];
-  for (let i = 0; i < arrayOfIds.length; i++) {
-    let currentId = arrayOfIds[i];
-    var contactsCategorized = showAllContacts(contactsFromServer, currentId);
-    document.getElementById("tbl-body-" + currentId).innerHTML =
-      sanitizeStringWithTableRows(contactsCategorized);
-  }
+
+    let options = getAuthenticatorForGet();
+    console.log(options);
+
+    const contactsFromServer = await fetch(URL, options).then((res) => res.json());
+    //currently the best solution is to hardcode the ids of the contactTypes
+    const arrayOfIds = [1, 2, 3, 4, 5, 6];
+    for (let i = 0; i < arrayOfIds.length; i++) {
+        let currentId = arrayOfIds[i];
+        var contactsCategorized = showAllContacts(contactsFromServer, currentId);
+        document.getElementById("tbl-body-" + currentId).innerHTML =
+            sanitizeStringWithTableRows(contactsCategorized);
+    }
 }
 
 function showAllContacts(data, id) {
   var newArray = data.filter(function (contact) {
-    return contact.contactType.id == id;
+    return contact.contactType.id === id;
   });
   const tableRows = newArray.map(
     (contact) =>
