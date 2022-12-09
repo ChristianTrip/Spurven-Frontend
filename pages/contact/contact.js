@@ -1,6 +1,9 @@
 import { API_URL } from "../../settings.js";
 import { handleHttpErrors } from "../../utils.js";
 import { sanitizeStringWithTableRows } from "../../utils.js";
+import { getAuthenticatorForGet} from "../../utils.js";
+import { getAuthenticatorForEdit} from "../../utils.js";
+
 const URL = API_URL + "contacts";
 
 export function initContacts() {
@@ -56,11 +59,9 @@ function closeModal() {
 
 
 export async function fetchAllContacts() {
-    const token = localStorage.getItem('token');
-    console.log("===============================" + token);
-    const options = {}
-    options.method = "GET"
-    options.headers = { "Content-type": "application/json", "Authorization" : "Bearer " + token}
+
+    let options = getAuthenticatorForGet();
+    console.log(options);
 
     const contactsFromServer = await fetch(URL, options).then((res) => res.json());
     //currently the best solution is to hardcode the ids of the contactTypes
