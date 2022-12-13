@@ -74,7 +74,7 @@ function addContact() {
 }
 
 
-function makeNewContact() {
+async function makeNewContact() {
     
 
     const newContact = {}
@@ -94,11 +94,11 @@ function makeNewContact() {
     console.log(contactToJson)
     console.log(options)
 
-    fetch(URL + "/", options)
+    await fetch(URL + "/", options)
         .then(r => r.json())
-        
+  
         fetchAllContacts();
-        addContact();
+      
         
 }
 
