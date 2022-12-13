@@ -96,9 +96,9 @@ function showCalender(events) {
     info.event.setEnd(info.event.start, editedEvent.end)
     }
 
-    function deleteshow(){
+    async function deleteshow(){
       const options = getAuthenticatorForDelete();
-      fetch(URL + id, options)
+      await fetch(URL + id, options)
 
     info.event.remove();
     }
@@ -127,7 +127,6 @@ async function renderShow(event) {
       document.getElementById("edit-description").value = event.description;
       document.getElementById("edit-start").value = event.start;
       document.getElementById("edit-end").value = event.end;
-
 }
 
 async function fetchEvent(id){

@@ -13,6 +13,7 @@ import {
 //import {initHome} from "./pages/home/home.js";
 import {initContacts} from "./pages/contact/contact.js";
 import {initCalendar} from "./pages/calendar/calendar.js"
+import { initExpenses } from "./pages/expense/expense.js";
 
 //window.location.href = "spurven-boating.dk/index.html#/login";
 //window.location.href = "http://127.0.0.1:5501/index.html#/login";
@@ -55,8 +56,8 @@ window.addEventListener("load", async () => {
         initCalendar();
       },
       "/expense": () => {
-        renderTemplate(templateExpense, "expense")
-        initExpense();
+        renderTemplate(templateExpense, "content")
+        initExpenses();
       }
     })
     .notFound(() => {
